@@ -1,0 +1,133 @@
+stackbitVersion: ~0.3.0
+ssgName: eleventy
+nodeVersion: '12'
+publishDir: _site
+dataDir: ''
+pagesDir: ''
+models:
+  page_1:
+    type: page
+    label: Page 1
+    match: '**/*'
+    exclude:
+      - posts/fourthpost.md
+    fields:
+      - type: string
+        name: layout
+        label: Layout
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: templateClass
+        label: Template Class
+      - type: object
+        name: eleventyNavigation
+        label: Eleventy Navigation
+        fields:
+          - type: string
+            name: key
+            label: Key
+          - type: number
+            name: order
+            label: Order
+            subtype: int
+      - type: string
+        name: description
+        label: Description
+      - type: date
+        name: date
+        label: Date
+      - type: list
+        name: tags
+        label: Tags
+        items:
+          type: string
+  post:
+    type: page
+    label: Post
+    folder: posts
+    match:
+      - fourthpost.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
+      - type: date
+        name: date
+        label: Date
+      - type: string
+        name: tags
+        label: Tags
+      - type: string
+        name: layout
+        label: Layout
+  metadata:
+    type: data
+    label: Metadata
+    file: _data/metadata.json
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: url
+        label: Url
+      - type: string
+        name: language
+        label: Language
+      - type: string
+        name: description
+        label: Description
+      - type: object
+        name: feed
+        label: Feed
+        fields:
+          - type: string
+            name: subtitle
+            label: Subtitle
+          - type: string
+            name: filename
+            label: Filename
+          - type: string
+            name: path
+            label: Path
+          - type: string
+            name: id
+            label: Id
+      - type: object
+        name: jsonfeed
+        label: Jsonfeed
+        fields:
+          - type: string
+            name: path
+            label: Path
+          - type: string
+            name: url
+            label: Url
+      - type: object
+        name: author
+        label: Author
+        fields:
+          - type: string
+            name: name
+            label: Name
+          - type: string
+            name: email
+            label: Email
+          - type: string
+            name: url
+            label: Url
+  posts:
+    type: data
+    label: Posts
+    file: posts/posts.json
+    fields:
+      - type: list
+        name: tags
+        label: Tags
+        items:
+          type: string
